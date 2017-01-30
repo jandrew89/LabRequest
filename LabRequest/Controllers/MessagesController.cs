@@ -9,6 +9,7 @@ using Microsoft.Bot.Connector;
 using Newtonsoft.Json;
 using Microsoft.Bot.Builder.Dialogs;
 using LabRequest.Dialogs;
+using LabRequest.Models;
 
 namespace LabRequest
 {
@@ -20,8 +21,7 @@ namespace LabRequest
         {
             if (activity.Type == ActivityTypes.Message)
             {
-
-                await Conversation.SendAsync(activity, () => MotorDialog.dialog);
+                await Conversation.SendAsync(activity, LuisDialog);
             }
             else
             {
@@ -29,6 +29,11 @@ namespace LabRequest
             }
             var response = Request.CreateResponse(HttpStatusCode.OK);
             return response;
+        }
+
+        private IDialog<Motor> LuisDialog()
+        {
+            return Chain.From(() => new LuisDialog(Motor.BuildForm));
         }
 
         private Activity HandleSystemMessage(Activity message)

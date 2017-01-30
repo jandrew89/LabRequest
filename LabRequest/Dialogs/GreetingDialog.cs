@@ -28,7 +28,7 @@ namespace LabRequest.Dialogs
             }
             else
             {
-                await context.PostAsync($"Hello {user}");
+                await context.PostAsync($"Hello {user}. Lets get started!");
             }
         }
 
