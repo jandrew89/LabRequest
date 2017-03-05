@@ -9,7 +9,9 @@ Implemented Formflow
 Implemented Luis.Ai
 Support for Intents, Entities, and Suggestions
 
+3/2/2017
+Advanced formflow features. Like form building using anonymous asynchronous delegates.
+Field Reflector to handle state and form updates with context.
 
-Coming soon.. advanced formflow features.
 
 https://www.luis.ai/
